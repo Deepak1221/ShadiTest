@@ -1,6 +1,6 @@
 package com.example.shaditest.data.remote
 
-import com.example.shaditest.data.ui.models.ApiResponse
+import com.example.shaditest.ui.models.ApiResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 import retrofit2.Response

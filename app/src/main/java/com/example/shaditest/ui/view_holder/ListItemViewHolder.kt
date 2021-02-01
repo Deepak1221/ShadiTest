@@ -7,20 +7,20 @@ import com.example.deevideos.ui.callbacks.ListItemClickListner
 import com.example.deevideos.utils.Actions
 import com.example.deevideos.utils.loadImage
 import com.example.shaditest.R
-import com.example.shaditest.data.ui.models.Results
-import com.example.shaditest.data.ui.view_holder.MainViewHolder
+import com.example.shaditest.data.local_db.entity.dbModels.User
+import com.example.shaditest.ui.view_holder.MainViewHolder
 import kotlinx.android.synthetic.main.item_row_person.view.*
 
 
 class ListItemViewHolder(val context: Context, itemView:View, val itemClickCallBack: ListItemClickListner) :
     MainViewHolder(itemView) {
-    lateinit var mItem: Results
+    lateinit var mItem: User
     init {
         setListners()
     }
 
 
-    override fun bindData(contex: Context,list: ArrayList<Results>,position: Int,item: Results) {
+    override fun bindData(contex: Context,list: ArrayList<User>,position: Int,item: User) {
         mItem = item
         itemView.txtName.text = mItem.name?.first
         itemView.txtAge.text = "${mItem.dob?.age} years"

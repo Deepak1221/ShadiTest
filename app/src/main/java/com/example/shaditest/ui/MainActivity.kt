@@ -1,4 +1,4 @@
-package com.example.shaditest.data.ui
+package com.example.shaditest.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,8 +15,8 @@ import com.example.deevideos.utils.Status
 import com.example.deevideos.utils.toasty
 import com.example.shaditest.R
 import com.example.shaditest.data.base.BaseViewModelFactory
+import com.example.shaditest.data.local_db.entity.dbModels.User
 import com.example.shaditest.data.remote.ApiClient
-import com.example.shaditest.data.ui.models.Results
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), ListItemClickListner {
@@ -68,8 +68,8 @@ class MainActivity : AppCompatActivity(), ListItemClickListner {
         })
    }
 
-   inline private fun handleSuccesResult(data: List<Results>?) {
-      mAdapter.addAllItem((data as ArrayList<Results>?)!!)
+   inline private fun handleSuccesResult(data: List<User>?) {
+      mAdapter.addAllItem((data as ArrayList<User>?)!!)
     }
 
     private fun initRecylerView() {
@@ -86,10 +86,10 @@ class MainActivity : AppCompatActivity(), ListItemClickListner {
     override fun onListItemClick(position: Int, type: String?, item: Any?) {
         when(type){
             Actions.TYPE_DECLINE->{
-             viewModel.updateUser(item as Results)
+             viewModel.updateUser(item as User)
             }
             Actions.TYPE_ACCEPT->{
-                viewModel.updateUser(item as Results)
+                viewModel.updateUser(item as User)
             }
         }
         mAdapter?.notifyItemChanged(position)

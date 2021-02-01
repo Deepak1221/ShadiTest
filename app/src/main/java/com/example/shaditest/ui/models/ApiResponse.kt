@@ -1,4 +1,4 @@
-package com.example.shaditest.data.ui.models
+package com.example.shaditest.ui.models
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 

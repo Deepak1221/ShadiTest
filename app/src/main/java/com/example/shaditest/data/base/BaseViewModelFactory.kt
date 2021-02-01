@@ -2,7 +2,7 @@ package com.example.shaditest.data.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.shaditest.data.ui.ShadiViewModel
+import com.example.shaditest.ui.ShadiViewModel
 
 
 class BaseViewModelFactory(val repo :BaseRepo ) : ViewModelProvider.Factory {

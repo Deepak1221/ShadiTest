@@ -1,4 +1,4 @@
-package com.example.shaditest.data.ui
+package com.example.shaditest.ui
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,12 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.deevideos.ui.callbacks.ListItemClickListner
 import com.example.deevideos.ui.view_holder.ListItemViewHolder
 import com.example.shaditest.R
-import com.example.shaditest.data.ui.models.Results
-import com.example.shaditest.data.ui.view_holder.MainViewHolder
+import com.example.shaditest.data.local_db.entity.dbModels.User
+import com.example.shaditest.ui.view_holder.MainViewHolder
 
 class ListAdapter(val context:Context, val callback: ListItemClickListner):
     RecyclerView.Adapter<MainViewHolder>() {
-    var mList: ArrayList<Results>
+    var mList: ArrayList<User>
     var layoutInflater: LayoutInflater
     private var isLoadingAdded: Boolean = false
     private var retryPageLoad: Boolean = false
@@ -64,7 +64,7 @@ class ListAdapter(val context:Context, val callback: ListItemClickListner):
 //
 //    private inner class View1ViewHolder(itemView: View) :
 //        RecyclerView.ViewHolder(itemView) {
-//        fun bind(position: Int, item: Results) {
+//        fun bind(position: Int, item: User) {
 //           itemView.txtTitle.text = item.vid_title
 //            item.player_content?.let { itemView.imgVideo.loadImage(it.prepareImageUrl()) }
 //        }
@@ -80,21 +80,21 @@ class ListAdapter(val context:Context, val callback: ListItemClickListner):
 //        }
 //    }
 
-    fun addAllItem(list: ArrayList<Results>) {
+    fun addAllItem(list: ArrayList<User>) {
         isLoadingAdded = false
         mList = list
         notifyDataSetChanged()
 
     }
 
-    fun addItemAtListEnd(list: ArrayList<Results>) {
+    fun addItemAtListEnd(list: ArrayList<User>) {
         for (result in list) {
             add(result)
         }
 
     }
 
-    fun add(r: Results) {
+    fun add(r: User) {
         mList.add(r)
         notifyItemInserted(mList.size - 1)
 
@@ -102,7 +102,7 @@ class ListAdapter(val context:Context, val callback: ListItemClickListner):
 
     fun addLoadingFooter() {
         isLoadingAdded = true
-       // add(Results(null, null, null, null, null))
+       // add(User(null, null, null, null, null))
     }
 
     fun removeLoadingFooter() {
@@ -115,7 +115,7 @@ class ListAdapter(val context:Context, val callback: ListItemClickListner):
         }
     }
 
-    private fun getItem(pos: Int): Results {
+    private fun getItem(pos: Int): User {
         return mList.get(pos)
 
     }
